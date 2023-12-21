@@ -1,3 +1,1 @@
 # RFM-Analysis
-RFM
-asds
