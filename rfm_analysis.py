@@ -142,7 +142,6 @@ rfm = pd.DataFrame()
 rfm["customer_id"] = df["master_id"]
 rfm["recency"] = (analysis_date - df["last_order_date"]).astype('timedelta64[D]')
 rfm["frequency"] = df["Total_order"]
-rfm["monetary"] = df["customer_value_total"]
 rfm["monetary"] = df["Total_value"]
 
 rfm.head()
