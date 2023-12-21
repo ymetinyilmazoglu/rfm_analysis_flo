@@ -39,6 +39,5 @@ The data set includes OmniChannel (both online and offline shoppers) who made th
 * interested_in_categories_12: List of categories where the customer shopping in the last 12 months
 
 ## Customer Segments
-![RFM-Segmentleri](https://github.com/ymetinyilmazoglu/RFM-Analysis/assets/136450475/3aaac67b-016f-472a-a265-c102d31d1613)
-
+![RFM-segmentasyon](https://github.com/ymetinyilmazoglu/RFM-Analysis/assets/136450475/69426267-4075-4710-90e5-10892dbfc466)
 
