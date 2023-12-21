@@ -1,6 +1,6 @@
 # RFM Analysis-FLO RFM Analysis
 ![rfm-analizi](https://github.com/ymetinyilmazoglu/RFM-Analysis/assets/136450475/062cd5f2-6f41-4108-9031-ebbba3934a26)
--**_What is RFM Analysis?_**
+- What is RFM Analysis?
 
 RFM Analysis is a technique used for customer segmentation. It allows customers to be divided into groups based on their purchasing habits and to develop strategies specific to groups. It is based on 3 basic metrics that start with 3 letters in the name RFM analysis.   First, let's look at what these three concepts are.
 **_Recency_**
