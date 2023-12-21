@@ -41,16 +41,16 @@ pd.set_option('display.max_rows', None)
 pd.set_option('display.float_format', lambda x: '%.3f' % x)
 pd.set_option('display.expand_frame_repr', False)
 pd.set_option('display.width', 500)
-###############################################################
+
 
 df_first = pd.read_csv("flo_data_20k.csv")
 df = df_first.copy()
 
-###############################################################
+
 # TASK 2: Examine the first 10 rows of the data set, 
 # variable names, size, descriptive statistics,
 # null values, and variable types.
-###############################################################
+
 def check_dataframe(df, head=10):
     print("##################### Shape #####################")
     print(df.shape)
@@ -70,10 +70,10 @@ def check_dataframe(df, head=10):
 check_dataframe(df)
 
 
-###############################################################
+
 # TASK 3: Omnichannel means that customers shop from both online and offline platforms.
 # Create new variables for each customer's total number of purchases and spending.
-################################################################
+
 
 # total order of omnichannel (offline + online), total number of orders
 df["Total_order"]=df["order_num_total_ever_online"]+df["order_num_total_ever_offline"]
@@ -82,9 +82,9 @@ df["Total_value"] = df["customer_value_total_ever_offline"]+df["customer_value_t
 
 df.head()
 
-###############################################################
+
 # TASK 4: Examine the types of variables. Convert the object variables containing date in the data set to date format.
-################################################################
+
 for i in df.columns:
     if "date" in i:
         df[i] = df[i].apply(pd.to_datetime)
@@ -95,33 +95,31 @@ date_columns = df.columns[df.columns.str.contains("date")]
 df[date_columns] = df[date_columns].apply(pd.to_datetime)
 df.info()
 
-################################################################
 # TASK 5: Look at the distribution of the number of customers in the shopping channels, the total number of products
 # purchased and total expenditures.
 # master_id count shows us how many purchases there are.
-###############################################################
 
 df.groupby("order_channel").agg({"master_id":"count",
                                 "Total_order":"sum",
                                 "Total_value":"sum"})
 
 
-###############################################################
+
 # TASK 6: Rank the top 10 customers who spend the most.
-###############################################################
+
 
 df.sort_values("Total_value", ascending=False)[:10]
 
 
-###############################################################
+
 # TASK 7: Rank the top 10 customers with the most purchases.
-###############################################################
+
 
 df.sort_values("Total_order", ascending=False)[:10]
 
-###############################################################
+
 # TASK 8: Functionalize the data provisioning process.
-###############################################################
+
 def data_processing(dataframe):
     dataframe["Total_order"] = dataframe["order_num_total_ever_online"] + dataframe["order_num_total_ever_offline"]
     dataframe["Total_value"] = dataframe["customer_value_total_ever_offline"] + dataframe["customer_value_total_ever_online"]
