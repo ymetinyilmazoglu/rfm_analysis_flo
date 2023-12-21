@@ -4,6 +4,7 @@
 ## What is RFM Analysis?
 
 RFM Analysis is a technique used for customer segmentation. It allows customers to be divided into groups based on their purchasing habits and to develop strategies specific to groups. It is based on 3 basic metrics that start with 3 letters in the name RFM analysis.   First, let's look at what these three concepts are.
+
 **_Recency_**
 
 It is calculated based on the dates of the customer's purchases. It is the number of days between the customer's last shopping date and our analysis date or the date we base it on.
