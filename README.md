@@ -19,7 +19,7 @@ It is the total monetary value of the purchases made within the date range recor
 
 ## Business Problem
 FLO, an online shoe store, wants to divide its customers into segments and determine marketing strategies according to these segments. For this purpose, the behavior of the customers will be defined and groups will be created according to these behavioral clusters.
--Features of Dataset
+## Features of Dataset
 * Total Row : 19.945
 * Total Features : 12
 * CSV File Size : 2.7 MB
