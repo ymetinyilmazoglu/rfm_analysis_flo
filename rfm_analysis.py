@@ -33,42 +33,58 @@
 ###############################################################
 # TASK 1: Prepare and Understand Data (Data Understanding)
 ###############################################################
-# 1. flo_data_20K.csv verisini okuyunuz.
+
 import datetime as dt
 import pandas as pd
 pd.set_option('display.max_columns', None)
-#pd.set_option('display.max_rows', None)
+pd.set_option('display.max_rows', None)
 pd.set_option('display.float_format', lambda x: '%.3f' % x)
 pd.set_option('display.expand_frame_repr', False)
 pd.set_option('display.width', 500)
-df_ = pd.read_csv("flo_data_20k.csv")
-df = df.copy()
+###############################################################
 
-# 2. Veri setinde
-    # a. İlk 10 gözlem
-df.head(10)
-    # b. Değişken isimleri
-df.columns
-    # c. Boyut
-df.shape
-    # d. Betimsel istatistik
-df.describe().T
-    # e. Boş değer
-df.isnull().sum()
-    # f. Değişken tipleri, incelemesi yapınız.
-df.dtypes
+df_first = pd.read_csv("flo_data_20k.csv")
+df = df_first.copy()
+
+###############################################################
+# TASK 2: Examine the first 10 rows of the data set, 
+# variable names, size, descriptive statistics,
+# null values, and variable types.
+###############################################################
+def check_dataframe(df, head=10):
+    print("##################### Shape #####################")
+    print(df.shape)
+    print("##################### Info  #####################")
+    print(df.info())
+    print("##################### Types #####################")
+    print(df.dtypes)
+    print("##################### Head  #####################")
+    print(df.head(head))
+    print("##################### Tail  ######################")
+    print(df.tail(head))
+    print("#################### Summary Statistics of The Dataset #####################")
+    print(df.describe())
+    print("###################### NA(Null Values In The Dataset) ######################")
+    print(df.isnull().sum())
+
+check_dataframe(df)
 
 
-# 3. Omnichannel müşterilerin hem online'dan hemde offline platformlardan alışveriş yaptığını ifade etmektedir.
-# Herbir müşterinin toplam alışveriş sayısı
+###############################################################
+# TASK 3: Omnichannel means that customers shop from both online and offline platforms.
+# Create new variables for each customer's total number of purchases and spending.
+################################################################
 
+# total order of omnichannel (offline + online), total number of orders
 df["Total_order"]=df["order_num_total_ever_online"]+df["order_num_total_ever_offline"]
-#ve harcaması için yeni değişkenler oluşturun.
-
+# total spend of omnichannel (offline + online), total expenditure
 df["Total_value"] = df["customer_value_total_ever_offline"]+df["customer_value_total_ever_online"]
 
-# 4. Değişken tiplerini inceleyiniz. Tarih ifade eden değişkenlerin tipini date'e çeviriniz.
+df.head()
 
+###############################################################
+# TASK 4: Examine the types of variables. Convert the object variables containing date in the data set to date format.
+################################################################
 for i in df.columns:
     if "date" in i:
         df[i] = df[i].apply(pd.to_datetime)
